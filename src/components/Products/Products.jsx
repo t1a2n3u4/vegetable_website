@@ -1,103 +1,120 @@
 import React from "react";
-import Img1 from "../../assets/women/women.png";
-import Img2 from "../../assets/women/women2.jpg";
-import Img3 from "../../assets/women/women3.jpg";
-import Img4 from "../../assets/women/women4.jpg";
+import Img1 from "../../assets/suggested/carrots.png";
+import Img2 from "../../assets/suggested/Cucumber.png";
+import Img3 from "../../assets/suggested/Tomato-plants.png";
+
 import { FaStar } from "react-icons/fa6";
+import { FiShoppingCart } from "react-icons/fi";
+
+const secondaryColor = "#93be5a";
 
 const ProductsData = [
   {
     id: 1,
     img: Img1,
-    title: "Women Ethnic",
+    title: "Carrots",
     rating: 5.0,
-    color: "white",
+    color: "Orange",
+    price: "BDT 30/kg",
     aosDelay: "0",
+    tag: "New",
   },
   {
     id: 2,
     img: Img2,
-    title: "Women western",
+    title: "Cucumber",
     rating: 4.5,
-    color: "Red",
+    color: "Green",
+    price: "BDT 30/kg",
     aosDelay: "200",
+    tag: "New",
   },
   {
     id: 3,
     img: Img3,
-    title: "Goggles",
+    title: "Tomato Plants",
     rating: 4.7,
-    color: "brown",
+    color: "Red",
+    price: "BDT 30/kg",
     aosDelay: "400",
-  },
-  {
-    id: 4,
-    img: Img4,
-    title: "Printed T-Shirt",
-    rating: 4.4,
-    color: "Yellow",
-    aosDelay: "600",
-  },
-  {
-    id: 5,
-    img: Img2,
-    title: "Fashin T-Shirt",
-    rating: 4.5,
-    color: "Pink",
-    aosDelay: "800",
+    tag: "New",
   },
 ];
 
 const Products = () => {
   return (
-    <div className="mt-14 mb-12">
-      <div className="container">
+    <div className="mt-14 mb-12 py-10 bg-[#93be5a] dark:bg-black transition-colors duration-300">
+      <div className="max-w-screen-xl mx-auto px-4">
         {/* Header section */}
-        <div className="text-center mb-10 max-w-[600px] mx-auto">
-          <p data-aos="fade-up" className="text-sm text-primary">
-            Top Selling Products for you
-          </p>
-          <h1 data-aos="fade-up" className="text-3xl font-bold">
-            Products
+        <div className="mb-10">
+          <h1
+            data-aos="fade-up"
+            className="text-3xl font-bold text-left text-green-800 dark:text-white"
+          >
+            Suggested for you
           </h1>
-          <p data-aos="fade-up" className="text-xs text-gray-400">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-            asperiores modi Sit asperiores modi
-          </p>
         </div>
-        {/* Body section */}
-        <div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
-            {/* card section */}
+
+        {/* Grid Container */}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {ProductsData.map((data) => (
               <div
-                data-aos="fade-up"
-                data-aos-delay={data.aosDelay}
                 key={data.id}
-                className="space-y-3"
+                className="relative bg-white dark:bg-slate-800 text-black dark:text-white rounded-lg p-4 shadow-md w-[220px] h-[350px] flex flex-col justify-between hover:scale-105 transition-transform duration-300"
               >
+                {/* Tag */}
+                {data.tag && (
+                  <div className="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded z-20">
+                    {data.tag}
+                  </div>
+                )}
+
+                {/* Product Image */}
                 <img
                   src={data.img}
-                  alt=""
-                  className="h-[220px] w-[150px] object-cover rounded-md"
+                  alt={data.title}
+                  className="h-[180px] w-full object-fill rounded-md"
                 />
+
+                {/* Product Info */}
                 <div>
-                  <h3 className="font-semibold">{data.title}</h3>
-                  <p className="text-sm text-gray-600">{data.color}</p>
-                  <div className="flex items-center gap-1">
-                    <FaStar className="text-yellow-400" />
-                    <span>{data.rating}</span>
+                  <h3 className="font-semibold text-green-800 dark:text-white">
+                    {data.title}
+                  </h3>
+                  <p className="text-sm text-green-800 dark:text-white">
+                    {data.color}
+                  </p>
+                  <p className="text-sm font-semibold mt-1 text-green-800 dark:text-white">
+                    {data.price}
+                  </p>
+                  <div className="flex items-center gap-2 mt-2 justify-between">
+                    <div className="flex items-center gap-1">
+                      <FaStar className="text-yellow-400" />
+                      <span>{data.rating}</span>
+                    </div>
+                    <button
+                      aria-label={`Add ${data.title} to cart`}
+                      className="p-2 rounded-full"
+                      style={{ backgroundColor: secondaryColor }}
+                    >
+                      <FiShoppingCart className="text-white" size={20} />
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          {/* view all button */}
-          <div className="flex justify-center">
-            <button className="text-center mt-10 cursor-pointer bg-primary text-white py-1 px-5 rounded-md">
-              View All Button
-            </button>
-          </div>
+        </div>
+
+        {/* View All Button */}
+        <div className="flex justify-center">
+          <button
+            className="text-center mt-10 cursor-pointer text-white py-1 px-5 rounded-md"
+            style={{ backgroundColor: "#416413" }}
+          >
+            View All Button
+          </button>
         </div>
       </div>
     </div>
