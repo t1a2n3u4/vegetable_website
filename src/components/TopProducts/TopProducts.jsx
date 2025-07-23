@@ -21,7 +21,7 @@ import carrotsImg from '../../assets/allproducts/carrots.png';
 import tomatoesImg from '../../assets/allproducts/Tomato-plants.png';
 import onionsBrownImg from '../../assets/allproducts/BROWN ONION.png';
 import avocadoImg from '../../assets/allproducts/avocado.png';
-import potatoesBrownImg from '../../assets/allproducts/brown potaTO.png';
+import potatoesBrownImg from '../../assets/allproducts/potatoes.png';
 import onionsRedImg from '../../assets/allproducts/onion.png';
 import broccoliImg from '../../assets/allproducts/brocolli.png';
 import celeryImg from '../../assets/allproducts/celery.png';
